@@ -97,21 +97,21 @@ function CompanyAdd() {
                     <div className='main'>
                        
                         <form autoComplete='off' action="/login-user" method='post'>
-                            <div className='name'>
+                            <div className='name input-box'>
                                 <label className='form-label'> Name</label>
                                 <input type="text" className="form-control" name='name' value={inputField.name} onChange={inputHandler} />
                                 {
                                     errField.nameErr.length > 0 && <span className='error'>{errField.nameErr}</span>
                                 }
                             </div>
-                            <div className='email'>
+                            <div className='email input-box'>
                                 <label className='form-label'>Email</label>
                                 <input type="email" className="form-control" name='email' autoComplete='off' value={inputField.email} onChange={inputHandler} />
                                 {
                                     errField.emailErr.length > 0 && <span className='error'>{errField.emailErr}</span>
                                 }
                             </div>
-                            <div className='email'>
+                            <div className='email input-box'>
                                 <label className='form-label'>Address</label>
                                 <input type="text" className="form-control" name='address' autoComplete='off' value={inputField.address} onChange={inputHandler} />
                                 {

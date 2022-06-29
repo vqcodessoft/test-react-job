@@ -41,11 +41,11 @@ function Home(){
                  <table className='style-table'>
                      <thead>
                          <tr>
-                             <th style={{textAlign:"center"}}>No</th>
-                             <th style={{textAlign:"center"}}>Name</th>
-                             <th style={{textAlign:"center"}}>Email</th>
-                             <th style={{textAlign:"center"}}>Address</th>
-                             <th style={{textAlign:"center"}}>Action</th>
+                             <th >No</th>
+                             <th >Name</th>
+                             <th>Email</th>
+                             <th >Address</th>
+                             <th >Action</th>
                          </tr>
                      </thead>
                      <tbody>
