@@ -115,7 +115,7 @@ function CompanyAdd() {
                                 <label className='form-label'>Address</label>
                                 <input type="text" className="form-control" name='address' autoComplete='off' value={inputField.address} onChange={inputHandler} />
                                 {
-                                    errField.emailErr.length > 0 && <span className='error'>{errField.emailErr}</span>
+                                    errField.addressErr.length > 0 && <span className='error'>{errField.addressErr}</span>
                                 }
                             </div>
                             <div>

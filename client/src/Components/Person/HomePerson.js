@@ -5,7 +5,7 @@ import { ToastContainer, toast } from 'react-toastify';
 import "./Navbar.css"
 //import "./home.css"
 
-function Home(){
+function HomePerson(){
     const [data, setData] = useState([])
 
  
@@ -14,7 +14,7 @@ function Home(){
     },[])
 
            const loadUser=async ()=>{
-               const result = await axios.get("http://localhost:8000/company")
+               const result = await axios.get("http://localhost:8000/person")
                if(result.status === 200){
                    setData(result.data)
                }
@@ -24,9 +24,9 @@ function Home(){
            const onDeleteUser=async (id) =>{
                alert(id);
                if(window.confirm("Are you sure that you want to delete user Record")){
-                   const response = await axios.delete(`http://localhost:8000/company/${id}`)
+                   const response = await axios.delete(`http://localhost:8000/person/${id}`)
                    if(response.status===200){
-                       toast.success(response.data)
+                       toast.success(response.data.message)
                        loadUser();
                    }
                }
@@ -43,23 +43,24 @@ function Home(){
                          <tr>
                              <th >No</th>
                              <th >Name</th>
-                             <th>Email</th>
+                             <th>Mobile</th>
                              <th >Address</th>
                              <th >Action</th>
                          </tr>
                      </thead>
                      <tbody>
                          {data && data.map((item,index)=>{
+                           
                              return(
                                  <tr key={index}>
                                      <th scope='row'>{index+1}</th>
                                      
                                      <td>{item.name}</td>
-                                      <td>{item.email}</td> 
+                                      <td>{item.mobile}</td> 
                                      <td>{item.address}</td>
                                      
                                      <td>
-                                         <Link to={`/users/${item._id}`}>
+                                         <Link to={`/edit/${item._id}`}>
                                              <button className='btn btn-edit btn-outline-primary m-2'>Edit</button>
                                          </Link>
                                          <button className='btn btn-delete btn-danger m-2'  onClick={()=>onDeleteUser(item._id)}>Delete</button>
@@ -79,4 +80,4 @@ function Home(){
         </>
     )
 } 
-export default Home;
+export default HomePerson;

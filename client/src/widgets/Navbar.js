@@ -6,10 +6,10 @@ function App() {
         <>
             <div className='nav'>
                 <ul>
-                    <li><NavLink to="" activeClassName="active">Home</NavLink></li>
+                    <li><NavLink to="/homepage" activeClassName="active">Home</NavLink></li>
                     <li><NavLink to="/company" activeClassName="active">Company-Add</NavLink></li>
-                    <li><a to="/" activeClassName="active">Person-Add</a></li>
-                    <li><a to="/" activeClassName="active">About</a></li>
+                    <li><NavLink to="/person" activeClassName="active">Person-Add</NavLink></li>
+                    <li><NavLink to="/about" activeClassName="active">About</NavLink></li>
 
                 </ul>
             

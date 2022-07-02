@@ -15,9 +15,11 @@ var UserSchema = new mongoose.Schema({
         type:String
     },
    
-    company: { type: mongoose.Schema.Types.ObjectId,
-                require:true
-                }
+    person:[ { 
+        type: mongoose.Schema.Types.ObjectId,
+         ref: 'Person',
+             
+    }]
           
     
   

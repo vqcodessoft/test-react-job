@@ -7,7 +7,7 @@ var UserSchema = new mongoose.Schema({
     },
     mobile:{
         type:Number,
-        require:true,
+        
       
     },
     

@@ -34,7 +34,9 @@ app.get("/company", async (req, res) => {
 
 app.get("/company/:id", async (req, res) => {
  try{
- const getData =await Company.findById(req.params.id) 
+ const getData =await Company.findById({_id:req.params.id}) 
+ console.log("data",getData)
+         //getData.save()
         res.send(getData)
     
  }
@@ -44,18 +46,44 @@ app.get("/company/:id", async (req, res) => {
 
 })
 
+////////////////////////////////////////////////
+
+                //     const {name,email,address,person} = req.body
+
+                // app.post ("/company",async(req,res)=>{
+                //     const company = new Company({name,email,address,person})
+                //      await company.save()
+                //     res.status(200).json({message:"Company data successfully inserted"})
+                // })
 
 
+
+
+
+                //     const {name,mobile,address} = req.body
+                //       const person = new Person({name,mobile,address})
+                // app.post("/person", async(req,res)=>{                    
+                //           await person.save()
+                //           res.status(200).json({message:"Person data is inserted"})
+      
+                //                  })
+
+
+///////////////////////////////////////////////////
 
 
 app.post("/company",(req, res) => {
-    const { name, email, address,company } = req.body;
+    const { name, email, address ,person} = req.body;
+   // const {_id} = req.body.personId
+   //const personId = person._id.toString();
     Company.findOne({ email: email }, (err, data) => {
         if (data) {
              res.send({ message: "Email Already Exist" })
         }
         else {
-            const data = new Company({ name, email, address })
+            const data = new Company({ name, email, address,person})
+             
+            console.log(data)
             data.save(err => {
                 if (err) {
                     res.send(err)
@@ -63,6 +91,7 @@ app.post("/company",(req, res) => {
                     res.send({ message: "Successfully data insert" })
                 }
             })
+
         }
     })
 
@@ -118,6 +147,36 @@ app.get("/",(req,res)=>{
 })
 
 /////////////////////----------Person-----------////////////////////
+
+
+app.get("/person", async (req, res) => {
+    try {
+        const getResult = await  Person.find()
+        res.send(getResult)
+    }
+    catch (e) {
+        res.send(e)
+    }
+})
+
+
+app.get("/person/:id", async (req, res) => {
+ try{
+ const getData =await  Person.findById({_id:req.params.id}) 
+ console.log("data",getData)
+         //getData.save()
+        res.send(getData)
+    
+ }
+ catch(e) {
+     res.send(e)
+ }
+
+})
+
+
+
+
 
 app.post("/person",(req, res) => {
     const { name, mobile, address} = req.body;
